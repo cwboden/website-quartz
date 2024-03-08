@@ -16,11 +16,9 @@ export default ((opts?: Options) => {
         <hr />
         <ul>
           {Object.entries(links).map(([text, detail]) => {
-            const fontclass = detail.icon
-            const iconstyle = "color: " + detail.iconcolor
             return (
             <li>
-              <a href={detail.link}><i style={iconstyle} class={fontclass}/></a>
+              <a href={detail.link}><i class={detail.icon}/></a>
             </li>
           )})}
         </ul>

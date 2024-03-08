@@ -19,6 +19,7 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
+import Splash from "./Splash"
 
 export {
   ArticleTitle,
@@ -36,6 +37,7 @@ export {
   Graph,
   Backlinks,
   Search,
+  Splash,
   Footer,
   DesktopOnly,
   MobileOnly,

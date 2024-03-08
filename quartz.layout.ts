@@ -7,13 +7,13 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      "Subscribe (RSS)": {link: "https://carsonboden.com", icon: "fa-solid fa-square-rss", iconcolor: "orange"},
-      Github: {link: "https://github.com/cwboden", icon: "fa-brands fa-github", iconcolor: "black"},
-      LinkedIn: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin", iconcolor: "blue"},
-      Mastodon: {link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon", iconcolor: "purple"},
-      Spotify: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-spotify", iconcolor: "green"},
-      Steam: {link: "https://steamcommunity.com/id/xenonn11", icon: "fa-brands fa-steam", iconcolor: "black"},
-      BoardGameGeek: {link: "https://boardgamegeek.com/user/xenonn11", icon: "fa-solid fa-chess-pawn", iconcolor: "black"}
+      "Subscribe (RSS)": {link: "https://carsonboden.com", icon: "fa-solid fa-square-rss"},
+      Github: {link: "https://github.com/cwboden", icon: "fa-brands fa-github"},
+      LinkedIn: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin"},
+      Mastodon: {link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon"},
+      Spotify: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-spotify"},
+      Steam: {link: "https://steamcommunity.com/id/xenonn11", icon: "fa-brands fa-steam"},
+      BoardGameGeek: {link: "https://boardgamegeek.com/user/xenonn11", icon: "fa-solid fa-chess-pawn"}
     },
   }),
 }
@@ -27,6 +27,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
+    Component.Splash(),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
@@ -43,6 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
+    Component.Splash(),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
