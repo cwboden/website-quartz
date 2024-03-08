@@ -7,11 +7,13 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/cwboden/website-quartz",
-      LinkedIn: "https://linkedin.com/in/carson-boden",
-      Spotify: "https://open.spotify.com/user/l92w5wicgopkq6tge6osg5ibm?si=gxgGieMbS1K-mrlHXzC38A",
-      Steam: "https://steamcommunity.com/id/xenonn11",
-      BoardGameGeek: "https://boardgamegeek.com/user/xenonn11"
+      "Subscribe (RSS)": {link: "https://carsonboden.com", icon: "fa-solid fa-square-rss", iconcolor: "orange"},
+      Github: {link: "https://github.com/cwboden", icon: "fa-brands fa-github", iconcolor: "black"},
+      LinkedIn: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin", iconcolor: "blue"},
+      Mastodon: {link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon", iconcolor: "purple"},
+      Spotify: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-spotify", iconcolor: "green"},
+      Steam: {link: "https://steamcommunity.com/id/xenonn11", icon: "fa-brands fa-steam", iconcolor: "black"},
+      BoardGameGeek: {link: "https://boardgamegeek.com/user/xenonn11", icon: "fa-solid fa-chess-pawn", iconcolor: "black"}
     },
   }),
 }
