@@ -34,9 +34,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.RecentNotes({
       title: "Related recent files",
       // Show recent files with tags that match the current article
-      filter: (openFile, fileToFilter) => openFile.frontmatter?.tags?.some(
-        (tag) => fileToFilter.frontmatter?.tags?.includes(tag) ?? false
-      ) ?? false
+      filter: (openFile, fileToFilter) => (openFile != fileToFilter)
+        && (
+          openFile.frontmatter?.tags?.some(
+            (tag) => fileToFilter.frontmatter?.tags?.includes(tag) ?? false
+          ) ?? false
+        )
     })
   ],
   right: [
