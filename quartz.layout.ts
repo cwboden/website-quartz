@@ -31,6 +31,13 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
+    Component.RecentNotes({
+      title: "Related recent files",
+      // Show recent files with tags that match the current article
+      filter: (openFile, fileToFilter) => openFile.frontmatter?.tags?.some(
+        (tag) => fileToFilter.frontmatter?.tags?.includes(tag) ?? false
+      ) ?? false
+    })
   ],
   right: [
     Component.Graph({
