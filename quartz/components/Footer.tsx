@@ -3,8 +3,13 @@ import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 import { i18n } from "../i18n"
 
+interface Link {
+  link: string,
+  icon: string,
+}
+
 interface Options {
-  links: Record<string, string>
+  links: Record<string, Link>
 }
 
 export default ((opts?: Options) => {
