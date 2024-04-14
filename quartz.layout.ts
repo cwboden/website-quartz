@@ -7,13 +7,13 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      "Subscribe (RSS)": {link: "https://carsonboden.com", icon: "fa-solid fa-square-rss"},
-      Github: {link: "https://github.com/cwboden", icon: "fa-brands fa-github"},
-      LinkedIn: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin"},
-      Mastodon: {link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon"},
-      Spotify: {link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-spotify"},
-      Steam: {link: "https://steamcommunity.com/id/xenonn11", icon: "fa-brands fa-steam"},
-      BoardGameGeek: {link: "https://boardgamegeek.com/user/xenonn11", icon: "fa-solid fa-chess-pawn"}
+      "Subscribe (RSS)": { link: "https://carsonboden.com", icon: "fa-solid fa-square-rss" },
+      Github: { link: "https://github.com/cwboden", icon: "fa-brands fa-github" },
+      LinkedIn: { link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin" },
+      Mastodon: { link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon" },
+      Spotify: { link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-spotify" },
+      Steam: { link: "https://steamcommunity.com/id/xenonn11", icon: "fa-brands fa-steam" },
+      BoardGameGeek: { link: "https://boardgamegeek.com/user/xenonn11", icon: "fa-solid fa-chess-pawn" }
     },
   }),
 }
@@ -31,16 +31,18 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.RecentNotes({
-      title: "Related recent files",
-      // Show recent files with tags that match the current article
-      filter: (openFile, fileToFilter) => (openFile != fileToFilter)
-        && (
-          openFile.frontmatter?.tags?.some(
-            (tag) => fileToFilter.frontmatter?.tags?.includes(tag) ?? false
-          ) ?? false
-        )
-    })
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        title: "Related recent files",
+        // Show recent files with tags that match the current article
+        filter: (openFile, fileToFilter) => (openFile != fileToFilter)
+          && (
+            openFile.frontmatter?.tags?.some(
+              (tag) => fileToFilter.frontmatter?.tags?.includes(tag) ?? false
+            ) ?? false
+          )
+      })
+    )
   ],
   right: [
     Component.Graph({
