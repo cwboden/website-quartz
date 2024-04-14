@@ -7,7 +7,7 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      "Subscribe (RSS)": { link: "https://carsonboden.com", icon: "fa-solid fa-square-rss" },
+      "Subscribe (RSS)": { link: "https://carsonboden.com/index.xml", icon: "fa-solid fa-square-rss" },
       Github: { link: "https://github.com/cwboden", icon: "fa-brands fa-github" },
       LinkedIn: { link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin" },
       Mastodon: { link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon" },
