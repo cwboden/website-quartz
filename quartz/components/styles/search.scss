@@ -5,6 +5,10 @@
   max-width: 14rem;
   flex-grow: 0.3;
 
+  @media all and (max-width: $mobileBreakpoint) {
+    width: 100%;
+  }
+
   & > #search-icon {
     background-color: var(--lightgray);
     border-radius: 4px;
