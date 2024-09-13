@@ -11,7 +11,7 @@ export const sharedPageComponents: SharedLayout = {
       Github: { link: "https://github.com/cwboden", icon: "fa-brands fa-github" },
       LinkedIn: { link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-linkedin" },
       Mastodon: { link: "https://social.ridetrans.it/@cwboden", icon: "fa-brands fa-mastodon" },
-      Spotify: { link: "https://linkedin.com/in/carson-boden", icon: "fa-brands fa-spotify" },
+      Spotify: { link: "https://open.spotify.com/user/l92w5wicgopkq6tge6osg5ibm", icon: "fa-brands fa-spotify" },
       Steam: { link: "https://steamcommunity.com/id/xenonn11", icon: "fa-brands fa-steam" },
       BoardGameGeek: { link: "https://boardgamegeek.com/user/xenonn11", icon: "fa-solid fa-chess-pawn" }
     },
