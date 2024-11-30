@@ -1,6 +1,5 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { FullSlug, SimpleSlug, resolveRelative } from "../util/path"
 import { QuartzPluginData } from "../plugins/vfile"
+import { resolveRelative } from "../util/path"
 import { byDateAndAlphabetical } from "./PageList"
 import style from "./styles/recentNotes.scss"
 import { Date, getDate } from "./Date"
@@ -13,12 +12,14 @@ interface Options {
   limit: number
   linkToMore: SimpleSlug | false
   filter: (currentFile: QuartzPluginData, fileToFilter: QuartzPluginData) => boolean
+  showTags: boolean
   sort: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
 const defaultOptions = (cfg: GlobalConfiguration): Options => ({
   limit: 3,
   linkToMore: false,
+  showTags: true,
   filter: () => true,
   sort: byDateAndAlphabetical(cfg),
 })
@@ -34,7 +35,7 @@ export default ((userOpts?: Partial<Options>) => {
     const pages = allFiles.filter((f) => opts.filter(fileData, f)).sort(opts.sort)
     const remaining = Math.max(0, pages.length - opts.limit)
     return (
-      (pages.length > 0) ?
+      (pages.length > 0) &&
         <div class={classNames(displayClass, "recent-notes")}>
           <h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title}</h3>
           <ul class="recent-ul">
@@ -42,21 +43,22 @@ export default ((userOpts?: Partial<Options>) => {
               const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
               const tags = page.frontmatter?.tags ?? []
 
-              return (
-                <li class="recent-li">
-                  <div class="section">
-                    <div class="desc">
-                      <h3>
-                        <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
-                          {title}
-                        </a>
-                      </h3>
-                    </div>
-                    {page.dates && (
-                      <p class="meta">
-                        <Date date={getDate(cfg, page)!} locale={cfg.locale} />
-                      </p>
-                    )}
+            return (
+              <li class="recent-li">
+                <div class="section">
+                  <div class="desc">
+                    <h3>
+                      <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
+                        {title}
+                      </a>
+                    </h3>
+                  </div>
+                  {page.dates && (
+                    <p class="meta">
+                      <Date date={getDate(cfg, page)!} locale={cfg.locale} />
+                    </p>
+                  )}
+                  {opts.showTags && (
                     <ul class="tags">
                       {tags.map((tag) => (
                         <li>
@@ -69,20 +71,20 @@ export default ((userOpts?: Partial<Options>) => {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
-          {opts.linkToMore && remaining > 0 && (
-            <p>
-              <a href={resolveRelative(fileData.slug!, opts.linkToMore)}>
-                {i18n(cfg.locale).components.recentNotes.seeRemainingMore({ remaining })}
-              </a>
-            </p>
-          )}
-        </div>
-        : <></>
+                  )}
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+        {opts.linkToMore && remaining > 0 && (
+          <p>
+            <a href={resolveRelative(fileData.slug!, opts.linkToMore)}>
+              {i18n(cfg.locale).components.recentNotes.seeRemainingMore({ remaining })}
+            </a>
+          </p>
+        )}
+      </div>
     )
   }
 

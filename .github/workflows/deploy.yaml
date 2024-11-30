@@ -24,7 +24,9 @@ jobs:
           fetch-depth: 0 # Fetch all history for git info
           token: ${{ secrets.DOCS_PAT }}
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - name: Install Dependencies
         run: npm ci
