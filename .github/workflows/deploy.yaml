@@ -7,7 +7,7 @@ on:
 
 env:
   # from: https://github.com/saberzero1/quartz-themes?tab=readme-ov-file#supported-themes
-  THEME_NAME: abecedarium
+  THEME_NAME: primary
 
 permissions:
   contents: read
