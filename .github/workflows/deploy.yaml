@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  # from: https://github.com/saberzero1/quartz-themes?tab=readme-ov-file#supported-themes
+  THEME_NAME: abecedarium
+
 permissions:
   contents: read
   pages: write
@@ -27,10 +31,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: npm
-          node-version: 20
+          node-version: 22
 
       - name: Install Dependencies
         run: npm ci
+
+      - name: Fetch Quartz theme
+        run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
 
       - name: Build Quartz
         run: npx quartz build
